@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Metadatos básicos y codificación de caracteres -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cristian Ulises Barenca Sotelo — AI & IT Researcher</title>
+    <meta name="description" content="Academic profile of Cristian U. Barenca Sotelo, Ph.D. Student in IT focused on AI agents at Universidad de Guadalajara (CUCEA).">
+    
+    <!-- URL canónica para evitar contenido duplicado en buscadores (SEO) -->
+    <link rel="canonical" href="https://cristian-barenca.github.io/">
+
+    <!-- Metadatos Open Graph (para previsualizaciones al compartir en LinkedIn, Facebook, WhatsApp, etc.) -->
+    <meta property="og:title" content="Cristian Ulises Barenca Sotelo — AI & IT Researcher">
+    <meta property="og:description" content="Ph.D. Student in IT focused on AI agents at Universidad de Guadalajara.">
+    <meta property="og:url" content="https://cristian-barenca.github.io/">
+    <meta property="og:type" content="website">
+
+    <!-- Metadatos Twitter Cards (para previsualizaciones en X / Twitter) -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Cristian Ulises Barenca Sotelo — AI & IT Researcher">
+    <meta name="twitter:description" content="Ph.D. Student in IT focused on AI agents at Universidad de Guadalajara.">
+
+    <!-- Datos estructurados en formato JSON-LD (Schema.org) para motores de búsqueda -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Cristian Ulises Barenca Sotelo",
+        "jobTitle": "Ph.D. Student in Information Technology",
+        "affiliation": {
+            "@type": "EducationalOrganization",
+            "name": "Universidad de Guadalajara — CUCEA"
+        },
+        "url": "https://cristian-barenca.github.io/",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Periférico Norte 799, CUCEA",
+            "addressLocality": "Zapopan",
+            "addressRegion": "Jalisco",
+            "addressCountry": "MX"
+        }
+    }
+    </script>
+
+    <!-- Tipografía Google Sans y CDN de FontAwesome para iconos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght,GRAD@0,17..18,400..700,-50;1,17..18,400..700,-50&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+        /* ==========================================================================
+           1. RESET Y VARIABLES DE TEMA (LIGHT & DARK MODE)
+           ========================================================================== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Variables CSS para el tema claro (por defecto) */
+        :root {
+            --ink: #1a1a2e;          /* Color principal del texto */
+            --surface: #f7f7f9;      /* Fondo general de la página */
+            --white: #ffffff;        /* Blanco para contrastes */
+            --slate: #5c6370;        /* Color secundario / metadata */
+            --accent: #2563eb;       /* Color de acento / enlaces */
+            --accent-hover: #1d4ed8; /* Color de hover para enlaces */
+            --border: #e2e4e9;       /* Bordes y líneas divisorias */
+            --card-bg: #ffffff;      /* Fondo de tarjetas y botones sociales */
+            --icon-filter: none;     /* Sin inversión de iconos en light mode */
+        }
+
+        /* Variables CSS para el tema oscuro (detecta preferencia del sistema operativo/navegador) */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --ink: #f0f0f4;
+                --surface: #000000;
+                --white: #111113;
+                --slate: #9ca3af;
+                --accent: #60a5fa;
+                --accent-hover: #93bbfd;
+                --border: #2a2a2e;
+                --card-bg: #111113;
+                --icon-filter: invert(1); /* Invierte iconos negros a blancos */
+            }
+        }
+
+        /* ==========================================================================
+           2. ESTILOS GLOBALES BASE
+           ========================================================================== */
+        html {
+            font-size: 100%;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Google Sans", system-ui, sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-variation-settings: "GRAD" 0;
+            color: var(--ink);
+            background-color: var(--surface);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--accent-hover);
+        }
+
+        /* Accesibilidad: indicador visual de enfoque para navegación por teclado */
+        a:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        /* Respeta preferencias de usuario de accesibilidad (sin transiciones bruscas) */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                transition: none !important;
+            }
+        }
+
+        /* ==========================================================================
+           3. ESTRUCTURA Y LAYOUT (CONTENEDOR Y COLUMNAS)
+           ========================================================================== */
+        .page-wrapper {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 2rem 1.25rem;
+        }
+
+        /* Disposición móvil por defecto: vertical */
+        .two-col {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        /* ==========================================================================
+           4. ENCABEZADO / HERO
+           ========================================================================== */
+        .site-header {
+            margin-bottom: 1rem;
+        }
+
+        .hero-name {
+            font-size: clamp(1.75rem, 4vw + 0.5rem, 3rem); /* Tipografía fluida */
+            font-weight: 700;
+            font-variation-settings: "GRAD" -50;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+            color: var(--ink);
+        }
+
+        .hero-tagline {
+            margin-top: 0.5rem;
+            font-size: clamp(1rem, 1.5vw + 0.5rem, 1.2rem);
+            color: var(--slate);
+            max-width: 55ch;
+            line-height: 1.5;
+        }
+
+        /* ==========================================================================
+           5. SIDEBAR (PERFIL, CONTACTO Y REDES SOCIALES)
+           ========================================================================== */
+        /* En pantallas móviles se centra todo el bloque lateral */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+            text-align: center;
+        }
+
+        .profile-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--border);
+        }
+
+        .contact-email {
+            font-size: 0.95rem;
+            color: var(--slate);
+            word-break: break-all;
+        }
+
+        /* Botones de perfiles sociales */
+        .social-icons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            color: var(--ink);
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+        }
+
+        .social-icons a:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .social-icons a img {
+            width: 20px;
+            height: 20px;
+            filter: var(--icon-filter);
+            transition: filter 0.2s ease;
+        }
+
+        .social-icons a i {
+            font-size: 20px;
+        }
+
+        /* Efectos hover con colores oficiales por red social */
+        /* ORCID: Verde (#A6CE39) */
+        .social-icons .social-orcid:hover {
+            border-color: #A6CE39;
+            color: #A6CE39;
+        }
+        .social-icons .social-orcid:hover img {
+            filter: invert(72%) sepia(51%) saturate(542%) hue-rotate(42deg) brightness(94%) contrast(88%) !important;
+        }
+
+        /* Credly: Naranja (#FF6B00) */
+        .social-icons .social-credly:hover {
+            border-color: #FF6B00;
+            color: #FF6B00;
+        }
+        .social-icons .social-credly:hover img {
+            filter: invert(47%) sepia(85%) saturate(3015%) hue-rotate(360deg) brightness(101%) contrast(106%) !important;
+        }
+
+        /* Google Cloud: Azul corporativo (#4285F4) */
+        .social-icons .social-gcloud:hover {
+            border-color: #4285F4;
+            color: #4285F4;
+        }
+        .social-icons .social-gcloud:hover img {
+            filter: invert(48%) sepia(90%) saturate(1478%) hue-rotate(200deg) brightness(99%) contrast(93%) !important;
+        }
+
+        /* Tarjeta de ubicación y datos de oficina */
+        .location-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            width: 100%;
+            max-width: 360px;
+            text-align: left;
+        }
+
+        .location-card h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 1rem;
+        }
+
+        .location-list {
+            list-style: none;
+        }
+
+        .location-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.65rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .location-list li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .location-list .loc-icon {
+            font-size: 1.15rem;
+            line-height: 1.4;
+            flex-shrink: 0;
+        }
+
+        .location-list strong {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--slate);
+            letter-spacing: 0.02em;
+        }
+
+        .location-list p {
+            font-size: 0.9rem;
+            color: var(--ink);
+            margin-top: 0.1rem;
+            line-height: 1.45;
+        }
+
+        /* ==========================================================================
+           6. CONTENIDO PRINCIPAL (BIO Y SECCIÓN NEWS)
+           ========================================================================== */
+        .content-main {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        /* Biografía */
+        .bio {
+            font-size: clamp(0.95rem, 1vw + 0.4rem, 1.05rem);
+            line-height: 1.7;
+            max-width: 65ch;
+            color: var(--ink);
+        }
+
+        .bio p {
+            margin-bottom: 1rem;
+        }
+
+        .bio p:last-child {
+            margin-bottom: 0;
+        }
+
+        .bio a {
+            font-weight: 500;
+            text-decoration: underline;
+            text-decoration-color: var(--accent);
+            text-underline-offset: 2px;
+        }
+
+        /* Sección de noticias (News) */
+        .news-section h2 {
+            font-size: clamp(1.25rem, 2vw + 0.5rem, 1.6rem);
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 1.25rem;
+        }
+
+        /* Contenedor scrolleable optimizado para múltiples noticias */
+        .news-scroll {
+            max-height: 480px;
+            overflow-y: auto;
+            padding-right: 0.5rem;
+        }
+
+        /* Estilizado de la barra de desplazamiento (Scrollbar) */
+        .news-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .news-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .news-scroll::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 2px;
+        }
+
+        .news-scroll::-webkit-scrollbar-thumb:hover {
+            background: var(--slate);
+        }
+
+        .news-scroll {
+            scrollbar-width: thin;
+            scrollbar-color: var(--border) transparent;
+        }
+
+        /* Línea de tiempo visual para las noticias */
+        .news-timeline {
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .news-timeline::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.4rem;
+            bottom: 0.4rem;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .news-item {
+            position: relative;
+            padding-bottom: 1.5rem;
+        }
+
+        .news-item:last-child {
+            padding-bottom: 0;
+        }
+
+        /* Marcador circular en la línea de tiempo */
+        .news-item::before {
+            content: "";
+            position: absolute;
+            left: -1.5rem;
+            top: 0.45rem;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+            transform: translateX(-3px);
+        }
+
+        .news-date {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--slate);
+            margin-bottom: 0.25rem;
+        }
+
+        .news-text {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            max-width: 60ch;
+            color: var(--ink);
+        }
+
+        .news-text a {
+            font-weight: 500;
+            text-decoration: underline;
+            text-decoration-color: var(--accent);
+            text-underline-offset: 2px;
+        }
+
+        /* ==========================================================================
+           7. PIE DE PÁGINA (FOOTER)
+           ========================================================================== */
+        .site-footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.8rem;
+            color: var(--slate);
+            text-align: center; /* Centrado en móviles */
+        }
+
+        /* ==========================================================================
+           8. MEDIA QUERIES (DISEÑO RESPONSIVO)
+           ========================================================================== */
+        /* Vista Tablet (>= 768px): Diseño en dos columnas horizontales */
+        @media (min-width: 768px) {
+            .page-wrapper {
+                padding: 3rem 2rem;
+            }
+
+            .two-col {
+                flex-direction: row;
+                gap: 3rem;
+            }
+
+            .content-main {
+                flex: 1;
+                min-width: 0;
+            }
+
+            /* La barra lateral regresa a alineación izquierda en desktop/tablet */
+            .sidebar {
+                width: 280px;
+                flex-shrink: 0;
+                align-items: flex-start;
+                text-align: left;
+            }
+
+            .social-icons {
+                justify-content: flex-start;
+            }
+
+            .location-card {
+                max-width: none;
+            }
+
+            .site-footer {
+                text-align: left; /* Alineado a la izquierda */
+            }
+
+            .profile-photo {
+                width: 140px;
+                height: 140px;
+            }
+
+            .news-scroll {
+                max-height: 560px;
+            }
+        }
+
+        /* Vista Desktop (>= 1024px): Mayores espaciados y padding */
+        @media (min-width: 1024px) {
+            .page-wrapper {
+                padding: 4rem 2.5rem;
+            }
+
+            .two-col {
+                gap: 4rem;
+            }
+
+            .sidebar {
+                width: 300px;
+            }
+
+            .news-scroll {
+                max-height: 640px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Contenedor centralizado principal -->
+    <div class="page-wrapper">
+
+        <!-- Encabezado / Hero con nombre y título académico -->
+        <header class="site-header">
+            <h1 class="hero-name">Cristian Ulises Barenca Sotelo</h1>
+            <p class="hero-tagline">Ph.D. Student in Information Technology focused on AI Agents, at Universidad de Guadalajara&nbsp;(CUCEA).</p>
+        </header>
+
+        <!-- Layout de dos columnas (Contenido principal + Barra lateral) -->
+        <div class="two-col">
+
+            <!-- Columna principal (Main): Biografía y Noticias -->
+            <main class="content-main">
+
+                <!-- Sección: Sobre mí (Biografía profesional) -->
+                <section aria-label="About">
+                    <div class="bio">
+
+                        <p>Hello!</p>
+
+                        <p>
+                            I am an AI Engineer at the <a href="https://www.udg.mx/" target="_blank" rel="noopener noreferrer">Universidad de Guadalajara</a>,
+                            where I work on the research, design, and implementation of artificial intelligence solutions for large-scale academic and institutional applications in a case study at <a href="https://www.cucea.udg.mx/" target="_blank" rel="noopener noreferrer">CUCEA</a>,
+                            collaborating with <a href="https://snii.org/ingenierias-y-desarrollo-tecnologico/jimenez-meza-ana-rosa/" target="_blank" rel="noopener noreferrer">Ph.D. Ana Rosa Jimenez</a>, <a href="https://snii.org/interdisciplinaria/maciel-arellano-ma-del-rocio/" target="_blank" rel="noopener noreferrer">Ph.D. MA. Del Rocío Maciel</a>,
+                            <a href="https://snii.org/interdisciplinaria/larios-rosillo-victor-manuel/" target="_blank" rel="noopener noreferrer">Ph.D. Victor Manuel Larios</a>, <a href="https://snii.org/interdisciplinaria/beltran-ramirez-jesus-raul/" target="_blank" rel="noopener noreferrer">Ph.D. Jesus Raul Beltran</a>,
+                            and <a href="https://snii.org/fisico-matematicas-y-ciencias-de-la-tierra/garcia-torales-guillermo/" target="_blank" rel="noopener noreferrer">Ph.D. Guillermo Torales</a>.
+                        </p>
+
+                        <p>
+                            I am also a Package Specialist for <a href="https://www.ibm.com/products/maximo" target="_blank" rel="noopener noreferrer">IBM Maximo</a> at <a href="https://www.ibm.com/" target="_blank" rel="noopener noreferrer">IBM</a>, with experience in enterprise systems, cloud infrastructure, and technology consulting within the Energy and Utilities industry in the U.S.
+                            Previously, I worked as a Software Engineer at the Universidad de Guadalajara, where I contributed to the development of academic evaluation platforms, machine learning workflows, and data-driven applications with <a href="https://snii.org/ingenierias-y-desarrollo-tecnologico/jimenez-meza-ana-rosa/" target="_blank" rel="noopener noreferrer">Ph.D. Ana Rosa Jimenez</a> &amp; <a href="https://snii.org/ciencias-sociales/diaz-perez-wendy/" target="_blank" rel="noopener noreferrer">Ph.D. Wendy Díaz</a>.
+                            At IBM, I have collaborated with international engineering teams, leading enterprise application deployments, system integrations, and infrastructure initiatives across three towers in 30 environments.
+                        </p>
+
+                        <p>
+                            I received my M.Sc. in Data Science from the Universidad de Guadalajara in 2025, graduating with a perfect GPA, and I also hold a B.Sc. in Software Engineering from the <a href="https://portal.ucol.mx/fie/" target="_blank" rel="noopener noreferrer">Universidad de Colima</a> in 2022.
+                            Currently, I am pursuing a <a href="https://dti.cucea.udg.mx/es/estudiantes-activos" target="_blank" rel="noopener noreferrer">Ph.D. in Information Technology</a> with a specialization in Applied Artificial Intelligence at the Universidad de Guadalajara.
+                            I have also completed specialized training in Machine Learning, Deep Learning, and Big Data at the National Autonomous University of Mexico (UNAM),
+                            and I am part of the second generation of AI for Future Workforce - GenAI (Intel) – Centro Público de Formación en IA, Mexico.
+                        </p>
+
+                        <p>
+                            My professional and research interests focus on Generative Artificial Intelligence, Agentic AI, Small Language Models (SLMs), Retrieval-Augmented Generation (RAG), Natural Language Processing, and enterprise cloud architecture.
+                            I am particularly interested in designing intelligent, context-aware systems, developing autonomous AI agents, and building scalable AI architectures that bridge advanced research with practical applications.
+                        </p>
+
+                        <p>
+                            My current environment combines applied research, software engineering, and enterprise technology, with a particular interest in leveraging artificial intelligence to transform complex processes, improve decision-making, and create meaningful real-world impact.
+                        </p>
+
+                    </div>
+                </section>
+
+                <!-- Sección: Noticias y Novedades (News con línea de tiempo) -->
+                <section class="news-section" aria-label="News">
+                    <h2>News</h2>
+                    <!-- Contenedor con scroll para alojar un número grande de entradas -->
+                    <div class="news-scroll">
+                        <div class="news-timeline">
+
+                            <article class="news-item">
+                                <p class="news-date">Nov 22, 2026</p>
+                                <p class="news-text">Invited to review a paper for IEEE Latin America Transactions Journal.</p>
+                            </article>
+
+                            <article class="news-item">
+                                <p class="news-date">Feb 23, 2026</p>
+                                <p class="news-text">Published a review article: <a href="https://doi.org/10.55965/setp.6.11.a1" target="_blank" rel="noopener noreferrer">Toward a Sustainable Innovation in the Faculty Evaluation Process: A Systematic Review of AI, Data Science, and NLP Applications in Higher Education</a> in Scientia Et Praxis.</p>
+                            </article>
+
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+
+            <!-- Barra lateral (Sidebar): Foto, redes y tarjeta de ubicación -->
+            <aside class="sidebar">
+
+                <!-- Foto de perfil con carga prioritaria (LCP optimizado para Core Web Vitals) -->
+                <img class="profile-photo"
+                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFeoiPbgWruOLcOEbPF7HMfvrx7KAMe7uZ5p5vBQluNw&s=10"
+                     alt="Portrait of Cristian Ulises Barenca Sotelo"
+                     width="140" height="140"
+                     fetchpriority="high">
+
+                <p class="contact-email">cristian.barenca1897 AT udg.mx</p>
+
+                <!-- Navegación de perfiles y redes profesionales -->
+                <nav class="social-icons" aria-label="Social profiles">
+                    <a href="https://www.linkedin.com/in/cristian-ulises-barenca-sotelo-50ba03183/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-link social-linkedin">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a href="https://orcid.org/0009-0000-5091-1900" target="_blank" rel="noopener noreferrer" aria-label="ORCID" class="social-link social-orcid">
+                        <img src="https://cdn.simpleicons.org/orcid/000000" alt="" width="20" height="20">
+                    </a>
+                    <a href="https://www.credly.com/badges/7c4393d8-ed31-42b3-aeef-889cf24c76b3/" target="_blank" rel="noopener noreferrer" aria-label="Credly" class="social-link social-credly">
+                        <img src="https://cdn.simpleicons.org/credly/000000" alt="" width="20" height="20">
+                    </a>
+                    <a href="https://skillshop.withgoogle.com/" target="_blank" rel="noopener noreferrer" aria-label="Google Skillshop" class="social-link social-gcloud">
+                        <img src="https://cdn.simpleicons.org/googlecloud/000000" alt="" width="20" height="20">
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="CV / Read.cv" class="social-link social-cv">
+                        <img src="https://cdn.simpleicons.org/readdotcv/000000" alt="" width="20" height="20">
+                    </a>
+                </nav>
+
+                <!-- Tarjeta de contacto físico y ubicación institucional -->
+                <div class="location-card">
+                    <h2>Location &amp; Contact</h2>
+                    <ul class="location-list">
+                        <li>
+                            <span class="loc-icon" aria-hidden="true">🏢</span>
+                            <div>
+                                <strong>Building</strong>
+                                <p>Building L</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="loc-icon" aria-hidden="true">📍</span>
+                            <div>
+                                <strong>Floor</strong>
+                                <p>3rd Floor</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="loc-icon" aria-hidden="true">🗺️</span>
+                            <div>
+                                <strong>Address</strong>
+                                <p>Periférico Norte 799, CUCEA, Zapopan, Jalisco, Mexico</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="loc-icon" aria-hidden="true">☎️</span>
+                            <div>
+                                <strong>Phone</strong>
+                                <p>+52 33 3770 3300, Ext. 25140</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </aside>
+
+        </div>
+
+        <!-- Pie de página (Footer) -->
+        <footer class="site-footer">
+            <p>&copy; Copyright 2026 Cristian Ulises Barenca Sotelo.</p> 
+            <p>Last updated: November 22, 2026.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
