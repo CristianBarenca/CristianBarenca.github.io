@@ -1,0 +1,502 @@
+/* ==========================================================================
+    1. RESET Y VARIABLES DE TEMA (LIGHT & DARK MODE)
+    ========================================================================== */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables CSS para el tema claro (por defecto) */
+:root {
+    --ink: #1a1a2e;
+    /* Color principal del texto */
+    --surface: #f7f7f9;
+    /* Fondo general de la página */
+    --white: #ffffff;
+    /* Blanco para contrastes */
+    --slate: #5c6370;
+    /* Color secundario / metadata */
+    --accent: #2563eb;
+    /* Color de acento / enlaces */
+    --accent-hover: #1d4ed8;
+    /* Color de hover para enlaces */
+    --border: #e2e4e9;
+    /* Bordes y líneas divisorias */
+    --card-bg: #ffffff;
+    /* Fondo de tarjetas y botones sociales */
+    --icon-filter: none;
+    /* Sin inversión de iconos en light mode */
+}
+
+/* Variables CSS para el tema oscuro (detecta preferencia del sistema operativo/navegador) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --ink: #f0f0f4;
+        --surface: #000000;
+        --white: #111113;
+        --slate: #9ca3af;
+        --accent: #60a5fa;
+        --accent-hover: #93bbfd;
+        --border: #2a2a2e;
+        --card-bg: #111113;
+        --icon-filter: invert(1);
+        /* Invierte iconos negros a blancos */
+    }
+}
+
+/* ==========================================================================
+    2. ESTILOS GLOBALES BASE
+    ========================================================================== */
+html {
+    font-size: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Google Sans", system-ui, sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-variation-settings: "GRAD" 0;
+    color: var(--ink);
+    background-color: var(--surface);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--accent-hover);
+}
+
+/* Accesibilidad: indicador visual de enfoque para navegación por teclado */
+a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Respeta preferencias de usuario de accesibilidad (sin transiciones bruscas) */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+}
+
+/* ==========================================================================
+    3. ESTRUCTURA Y LAYOUT (CONTENEDOR Y COLUMNAS)
+    ========================================================================== */
+.page-wrapper {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem;
+}
+
+/* Disposición móvil por defecto: vertical */
+.two-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+/* ==========================================================================
+    4. ENCABEZADO / HERO
+    ========================================================================== */
+.site-header {
+    margin-bottom: 1rem;
+}
+
+.hero-name {
+    font-size: clamp(1.75rem, 4vw + 0.5rem, 3rem);
+    /* Tipografía fluida */
+    font-weight: 700;
+    font-variation-settings: "GRAD" -50;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+}
+
+.hero-tagline {
+    margin-top: 0.5rem;
+    font-size: clamp(1rem, 1.5vw + 0.5rem, 1.2rem);
+    color: var(--slate);
+    max-width: 45ch;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+    5. SIDEBAR (PERFIL, CONTACTO Y REDES SOCIALES)
+    ========================================================================== */
+/* En pantallas móviles se centra todo el bloque lateral */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-photo {
+    width: 30%;
+    height: 30%;
+    object-fit: fill;
+    border: 3px solid var(--border);
+}
+
+.contact-email {
+    font-size: 0.95rem;
+    color: var(--slate);
+    word-break: break-all;
+}
+
+/* Botones de perfiles sociales */
+.social-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    color: var(--ink);
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+}
+
+.social-icons a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.social-icons a img {
+    width: 20px;
+    height: 20px;
+    filter: var(--icon-filter);
+    transition: filter 0.2s ease;
+}
+
+.social-icons a i {
+    font-size: 20px;
+}
+
+/* Efectos hover con colores oficiales por red social */
+/* ORCID: Verde (#A6CE39) */
+.social-icons .social-orcid:hover {
+    border-color: #A6CE39;
+    color: #A6CE39;
+}
+
+.social-icons .social-orcid:hover img {
+    filter: invert(72%) sepia(51%) saturate(542%) hue-rotate(42deg) brightness(94%) contrast(88%) !important;
+}
+
+/* Credly: Naranja (#FF6B00) */
+.social-icons .social-credly:hover {
+    border-color: #FF6B00;
+    color: #FF6B00;
+}
+
+.social-icons .social-credly:hover img {
+    filter: invert(47%) sepia(85%) saturate(3015%) hue-rotate(360deg) brightness(101%) contrast(106%) !important;
+}
+
+/* Google Cloud: Azul corporativo (#4285F4) */
+.social-icons .social-gcloud:hover {
+    border-color: #4285F4;
+    color: #4285F4;
+}
+
+.social-icons .social-gcloud:hover img {
+    filter: invert(48%) sepia(90%) saturate(1478%) hue-rotate(200deg) brightness(99%) contrast(93%) !important;
+}
+
+/* Tarjeta de ubicación y datos de oficina */
+.location-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    width: 100%;
+    max-width: 360px;
+    text-align: left;
+}
+
+.location-card h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 1rem;
+}
+
+.location-list {
+    list-style: none;
+}
+
+.location-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.location-list li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.location-list .loc-icon {
+    font-size: 1.15rem;
+    line-height: 1.4;
+    flex-shrink: 0;
+}
+
+.location-list strong {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--slate);
+    letter-spacing: 0.02em;
+}
+
+.location-list p {
+    font-size: 0.9rem;
+    color: var(--ink);
+    margin-top: 0.1rem;
+    line-height: 1.45;
+}
+
+/* ==========================================================================
+    6. CONTENIDO PRINCIPAL (BIO Y SECCIÓN NEWS)
+    ========================================================================== */
+.content-main {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+/* Biografía */
+.bio {
+    font-size: clamp(0.95rem, 1vw + 0.4rem, 1.05rem);
+    line-height: 1.7;
+    max-width: 65ch;
+    color: var(--ink);
+}
+
+.bio p {
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+.bio p:last-child {
+    margin-bottom: 0;
+}
+
+.bio a {
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-underline-offset: 2px;
+}
+
+/* Sección de noticias (News) */
+.news-section h2 {
+    font-size: clamp(1.25rem, 2vw + 0.5rem, 1.6rem);
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+}
+
+/* Contenedor scrolleable optimizado para múltiples noticias */
+.news-scroll {
+    max-height: 480px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+/* Estilizado de la barra de desplazamiento (Scrollbar) */
+.news-scroll::-webkit-scrollbar {
+    width: 4px;
+}
+
+.news-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.news-scroll::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 2px;
+}
+
+.news-scroll::-webkit-scrollbar-thumb:hover {
+    background: var(--slate);
+}
+
+.news-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+}
+
+/* Línea de tiempo visual para las noticias */
+.news-timeline {
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.news-timeline::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.4rem;
+    bottom: 0.4rem;
+    width: 2px;
+    background: var(--border);
+}
+
+.news-item {
+    position: relative;
+    padding-bottom: 1.5rem;
+}
+
+.news-item:last-child {
+    padding-bottom: 0;
+}
+
+/* Marcador circular en la línea de tiempo */
+.news-item::before {
+    content: "";
+    position: absolute;
+    left: -1.5rem;
+    top: 0.45rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    transform: translateX(-3px);
+}
+
+.news-date {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--slate);
+    margin-bottom: 0.25rem;
+}
+
+.news-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 60ch;
+    color: var(--ink);
+}
+
+.news-text a {
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-underline-offset: 2px;
+}
+
+/* ==========================================================================
+    7. PIE DE PÁGINA (FOOTER)
+    ========================================================================== */
+.site-footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--slate);
+    text-align: center;
+    /* Centrado en móviles */
+}
+
+/* ==========================================================================
+    8. MEDIA QUERIES (DISEÑO RESPONSIVO)
+    ========================================================================== */
+/* Vista Tablet (>= 768px): Diseño en dos columnas horizontales */
+@media (min-width: 768px) {
+    .page-wrapper {
+        padding: 3rem 2rem;
+    }
+
+    .two-col {
+        flex-direction: row;
+        gap: 3rem;
+    }
+
+    .content-main {
+        flex: 1;
+        min-width: 0;
+    }
+
+    /* La barra lateral regresa a alineación izquierda en desktop/tablet */
+    .sidebar {
+        width: 280px;
+        flex-shrink: 0;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .social-icons {
+        justify-content: flex-start;
+    }
+
+    .location-card {
+        max-width: none;
+    }
+
+    .site-footer {
+        text-align: left;
+        /* Alineado a la izquierda */
+    }
+
+    .profile-photo {
+        width: 120px;
+        height: 140px;
+    }
+
+    .news-scroll {
+        max-height: 560px;
+    }
+}
+
+/* Vista Desktop (>= 1024px): Mayores espaciados y padding */
+@media (min-width: 1024px) {
+    .page-wrapper {
+        padding: 4rem 2.5rem;
+    }
+
+    .two-col {
+        gap: 4rem;
+    }
+
+    .sidebar {
+        width: 300px;
+    }
+
+    .news-scroll {
+        max-height: 640px;
+    }
+}
